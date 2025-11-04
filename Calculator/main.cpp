@@ -31,7 +31,7 @@ void drawButton(SDL_Renderer* renderer, const Button& button) {
     SDL_RenderFillRect(renderer, &button.rect);
 }
 
-string currentInput; // те, що зараз вводиться
+string currentInput;
 double firstNumber = 0;
 double secondNumber = 0;
 string op;
