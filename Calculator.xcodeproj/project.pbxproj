@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A5E60C362EB105F8006AEF37 /* SDL3.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A5E60C342EB1058B006AEF37 /* SDL3.framework */; };
+		A5E60C522EB3AB4E006AEF37 /* libSDL3_ttf.0.2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5E60C512EB3AB4E006AEF37 /* libSDL3_ttf.0.2.2.dylib */; };
+		A5E60C542EB3ABE5006AEF37 /* libSDL3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A5E60C532EB3ABE5006AEF37 /* libSDL3.0.dylib */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		A5E60C212EB0F3FE006AEF37 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -13,6 +19,7 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
+				A5E60C362EB105F8006AEF37 /* SDL3.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -20,6 +27,9 @@
 
 /* Begin PBXFileReference section */
 		A5E60C232EB0F3FE006AEF37 /* Calculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Calculator; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5E60C342EB1058B006AEF37 /* SDL3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL3.framework; path = ../../../../../Library/Frameworks/SDL3.framework; sourceTree = "<group>"; };
+		A5E60C512EB3AB4E006AEF37 /* libSDL3_ttf.0.2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL3_ttf.0.2.2.dylib; path = ../../../../../opt/homebrew/Cellar/sdl3_ttf/3.2.2/lib/libSDL3_ttf.0.2.2.dylib; sourceTree = "<group>"; };
+		A5E60C532EB3ABE5006AEF37 /* libSDL3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSDL3.0.dylib; path = ../../../../../opt/homebrew/Cellar/sdl3/3.2.24/lib/libSDL3.0.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -35,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E60C542EB3ABE5006AEF37 /* libSDL3.0.dylib in Frameworks */,
+				A5E60C522EB3AB4E006AEF37 /* libSDL3_ttf.0.2.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				A5E60C252EB0F3FE006AEF37 /* Calculator */,
+				A5E60C332EB1058B006AEF37 /* Frameworks */,
 				A5E60C242EB0F3FE006AEF37 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +68,16 @@
 				A5E60C232EB0F3FE006AEF37 /* Calculator */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A5E60C332EB1058B006AEF37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5E60C532EB3ABE5006AEF37 /* libSDL3.0.dylib */,
+				A5E60C512EB3AB4E006AEF37 /* libSDL3_ttf.0.2.2.dylib */,
+				A5E60C342EB1058B006AEF37 /* SDL3.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +267,29 @@
 		A5E60C2B2EB0F3FE006AEF37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Calculator",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/include\n/opt/homebrew/include\n",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/../Frameworks",
+					/opt/homebrew/lib,
+					/Library/Frameworks,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/opt/homebrew/lib,
+					/opt/homebrew/Cellar/sdl3_ttf/3.2.2/lib,
+					/opt/homebrew/Cellar/sdl3/3.2.24/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vlad.calculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -252,7 +297,29 @@
 		A5E60C2C2EB0F3FE006AEF37 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Calculator",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/include\n/opt/homebrew/include\n",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/../Frameworks",
+					/opt/homebrew/lib,
+					/Library/Frameworks,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/opt/homebrew/lib,
+					/opt/homebrew/Cellar/sdl3_ttf/3.2.2/lib,
+					/opt/homebrew/Cellar/sdl3/3.2.24/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vlad.calculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
