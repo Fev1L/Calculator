@@ -135,10 +135,12 @@ int main() {
         return 1;
     }
     SDL_Window * window;
-    window = SDL_CreateWindow("Calculator by Fev1L v.1", 390, 600, SDL_WINDOW_OPENGL);
+    window = SDL_CreateWindow("Calculator by Fev1L v.1", 390, 600, SDL_WINDOW_OPENGL );
     SDL_Renderer* renderer = SDL_CreateRenderer(window, nullptr);
     
-    SDL_Surface* icon = SDL_LoadBMP("Assets/icon.bmp");
+    string basePath = SDL_GetBasePath();
+    string fullPath = basePath + "../Resources/Assets/icon.bmp";
+    SDL_Surface* icon = SDL_LoadBMP(fullPath.c_str());
     if (icon) {
         SDL_SetWindowIcon(window, icon);
         SDL_DestroySurface(icon);
@@ -147,7 +149,8 @@ int main() {
     }
 
     
-    TTF_Font* font = TTF_OpenFont("Assets/Roboto-Regular.ttf", 48);
+    string fontPath = basePath + "../Resources/Assets/Roboto-Regular.ttf";
+    TTF_Font* font = TTF_OpenFont(fontPath.c_str(), 48);
     if (!font) {
         SDL_Log("FONT Failure!");
         SDL_DestroyRenderer(renderer);
@@ -240,3 +243,4 @@ int main() {
 
     return 0;
 }
+
